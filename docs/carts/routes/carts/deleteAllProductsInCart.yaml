@@ -1,0 +1,22 @@
+paths:
+  /carts/{id}:
+    delete:
+      summary: Delete all products in cart
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: path parameter takes the cart id
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Products deleted in this cart.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "3a7b3d9f-afa0-450d-8b3b-bf937cea14ff"
+                products: []

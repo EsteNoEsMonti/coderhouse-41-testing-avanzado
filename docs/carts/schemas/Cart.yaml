@@ -1,0 +1,37 @@
+# Cart
+components:
+  schemas:
+    Cart:
+      type: object
+      required:
+        - id
+        - products
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Cart.
+        products:
+          type: array
+          items:
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+            quantity:
+              type: number
+          default: []
+      example:
+        - product:
+            id: "6132f274-60c6-427c-a034-740c450430bc"
+            title: "Product Title 🙂"
+            description: "This is a generic description."
+            price: 25000
+            thumbnail:
+              - "https://zealous-kalam-87c61d.netlify.app/"
+            code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+            stock: 12
+            status: true
+            category: "Category 2"
+            owner: "admin"
+          quantity: 3

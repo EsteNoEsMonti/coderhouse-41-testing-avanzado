@@ -1,0 +1,16 @@
+paths:
+  /carts:
+    post:
+      summary: Creates a new cart
+      tags:
+        - Carts
+      responses:
+        "201":
+          description: Cart created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "3a7b3d9f-afa0-450d-8b3b-bf937cea14ff"
+                products: []

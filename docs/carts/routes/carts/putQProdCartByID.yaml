@@ -1,0 +1,99 @@
+paths:
+  /carts/{cid}/product/{pid}:
+    put:
+      summary: Edits quantity of products in cart with given id
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: path parameter takes the cart id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product:
+                  type: string
+                  description: The id of the product in the cart.
+                quantity:
+                  type: number
+                  description: The quantity of the product in the cart.
+            example:
+              product: "6132f274-60c6-427c-a034-740c450430bc"
+              quantity: 5
+      responses:
+        "200":
+          description: Products in the cart with given id
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        price:
+                          type: number
+                        thumbnail:
+                          type: array
+                          items:
+                            type: string
+                        code:
+                          type: string
+                        stock:
+                          type: number
+                        status:
+                          type: boolean
+                        category:
+                          type: string
+                          enum:
+                            - Category 1
+                            - Category 2
+                            - Category 3
+                        owner:
+                          type: string
+                    quantity:
+                      type: number
+                example:
+                  - product:
+                      id: "6132f274-60c6-427c-a034-740c450430bc"
+                      title: "Product Title 😆"
+                      description: "This is a generic description."
+                      price: 35000
+                      thumbnail:
+                        - "https://zealous-kalam-87c61d.netlify.app/"
+                      code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                      stock: 12
+                      status: true
+                      category: "Category 3"
+                      owner: "admin"
+                    quantity: 5
+                  - product:
+                      id: "6132f274-60c6-427c-a034-740c450430bc"
+                      title: "Product Title 🤐"
+                      description: "This is a generic description."
+                      price: 10000
+                      thumbnail:
+                        - "https://zealous-kalam-87c61d.netlify.app/"
+                      code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                      stock: 50000
+                      status: true
+                      category: "Category 1"
+                      owner: "admin"
+                    quantity: 1
+        "404":
+          description: cart not found Error

@@ -1,0 +1,36 @@
+paths:
+  /carts/{cid}/product/{pid}:
+    post:
+      summary: Add product in cart
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: path parameter takes the cart id
+          required: true
+          type: string
+        - name: pid
+          in: path
+          description: path parameter takes the product id
+          required: true
+          type: string
+      responses:
+        "201":
+          description: Product added in this cart.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "3a7b3d9f-afa0-450d-8b3b-bf937cea14ff"
+                title: "Title Product 😎"
+                description: "This is a generic description"
+                price: 20000
+                thumbnail:
+                  - "https://zealous-kalam-87c61d.netlify.app/"
+                code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                stock: 50
+                status: true
+                category: "Category 1"
+                owner: "admin"

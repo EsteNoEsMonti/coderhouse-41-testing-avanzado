@@ -1,0 +1,46 @@
+paths:
+  /products/{id}:
+    put:
+      summary: Edit the product with given id
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          description: path parameter takes the product id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/NewProduct"
+            example:
+              title: "Product Title 😎"
+              description: "This is a generic description."
+              price: 25000
+              thumbnail: "https://zealous-kalam-87c61d.netlify.app/"
+              code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+              stock: 100
+              category: "Category 1"
+              owner: "admin"
+      responses:
+        "200":
+          description: The product with given id has been edited
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+              example:
+                title: "Product Title 😋"
+                description: "This is a generic description."
+                price: 25000
+                thumbnail: "https://zealous-kalam-87c61d.netlify.app/"
+                code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                stock: 100
+                category: "Category 1"
+                owner: "admin"
+        "404":
+          description: Product not found Error

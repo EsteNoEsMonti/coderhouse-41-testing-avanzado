@@ -1,0 +1,59 @@
+paths:
+  /carts/{id}:
+    put:
+      summary: Edits the products in cart with given id
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: path parameter takes the cart id
+          required: true
+          type: string
+        - name: pid
+          in: path
+          description: path parameter takes the product id
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/CartProducts"
+      responses:
+        "200":
+          description: Products in the cart with given id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                - product:
+                    id: "6132f274-60c6-427c-a034-740c450430bc"
+                    title: "Product Title 😁"
+                    description: "This is a generic description."
+                    price: 50000
+                    thumbnail:
+                      - "https://zealous-kalam-87c61d.netlify.app/"
+                    code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                    stock: 50
+                    status: true
+                    category: "Category 2"
+                    owner: "admin"
+                  quantity: 3
+                - product:
+                    id: "6132f274-60c6-427c-a034-740c450430bc"
+                    title: "Example Product"
+                    description: "This is an example product."
+                    price: 9999
+                    thumbnail:
+                      - "https://zealous-kalam-87c61d.netlify.app/"
+                    code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+                    stock: 50
+                    status: true
+                    category: "Category 3"
+                    owner: "admin"
+                  quantity: 1
+        "404":
+          description: cart not found Error

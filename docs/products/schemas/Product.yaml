@@ -1,0 +1,66 @@
+# Product
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - price
+        - thumbnail
+        - code
+        - stock
+        - status
+        - category
+        - owner
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the product.
+        title:
+          type: string
+          description: The title of the product.
+        description:
+          type: string
+          description: The description of the product.
+        price:
+          type: number
+          description: The price of the product.
+        thumbnail:
+          type: array
+          items:
+            type: string
+          description: The URLs of the product thumbnails.
+        code:
+          type: string
+          description: The code of the product.
+          maxLength: 7
+        stock:
+          type: number
+          description: The stock quantity of the product.
+        status:
+          type: boolean
+          description: The status of the product.
+        category:
+          type: string
+          description: The category of the product.
+          enum:
+            - Category 1
+            - Category 2
+            - Category 3
+        owner:
+          type: string
+          description: The owner of the product.
+      example:
+        id: "6132f274-60c6-427c-a034-740c450430bc"
+        title: "Product Title 😂"
+        description: "This is a generic description"
+        price: 15000
+        thumbnail:
+          - "https://zealous-kalam-87c61d.netlify.app/"
+        code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+        stock: 100
+        status: true
+        category: "Category 3"
+        owner: "admin"

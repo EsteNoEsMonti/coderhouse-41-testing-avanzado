@@ -1,0 +1,78 @@
+components:
+  requestBodies:
+    CartProducts:
+      type: array
+      items:
+        type: object
+        properties:
+          product:
+            type: object
+            properties:
+              _id:
+                type: string
+              id:
+                type: string
+              title:
+                type: string
+                description: The title of the product.
+              description:
+                type: string
+                description: The description of the product.
+              price:
+                type: number
+                description: The price of the product.
+              thumbnail:
+                type: array
+                items:
+                  type: string
+                description: The URLs of the product thumbnails.
+              code:
+                type: string
+                description: The code of the product.
+                maxLength: 7
+              stock:
+                type: number
+                description: The stock quantity of the product.
+              status:
+                type: boolean
+                description: The status of the product.
+              category:
+                type: string
+                description: The category of the product.
+                enum:
+                  - Category 1
+                  - Category 2
+                  - Category 3
+              owner:
+                type: string
+                description: The owner of the product.
+          quantity:
+            type: number
+            description: The quantity of the product in the cart.
+      example:
+        - product:
+            id: "6132f274-60c6-427c-a034-740c450430bc"
+            title: "Product Title 🤩"
+            description: "This is a generic description."
+            price: 40000
+            thumbnail:
+              - "https://zealous-kalam-87c61d.netlify.app/"
+            code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+            stock: 12
+            status: true
+            category: "Category 2"
+            owner: "admin"
+          quantity: 3
+        - product:
+            id: "6132f274-60c6-427c-a034-740c450430bc"
+            title: "Product Title 😍"
+            description: "This is an example product."
+            price: 9999
+            thumbnail:
+              - "https://zealous-kalam-87c61d.netlify.app/"
+            code: "PRODUCT-6132f274-60c6-427c-a034-740c450430bc"
+            stock: 50
+            status: true
+            category: "Category 2"
+            owner: "admin"
+          quantity: 1
